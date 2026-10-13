@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Agents – 100 MCQs</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f5f7fb;--card:#fff;--tx:#14213d;--mu:#5b6478;--bd:#d9dfec;--ac:#1d4ed8;--ok:#15803d;--okb:#dcfce7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1420;--card:#1a2133;--tx:#e8ecf5;--mu:#9aa5bd;--bd:#2c3650;--ac:#6b9bff;--ok:#6ee7a0;--okb:#12341f}}
+:root[data-theme="dark"]{--bg:#0f1420;--card:#1a2133;--tx:#e8ecf5;--mu:#9aa5bd;--bd:#2c3650;--ac:#6b9bff;--ok:#6ee7a0;--okb:#12341f}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.w{max-width:760px;margin:0 auto;padding:16px}
+h1{font-size:1.5rem;margin:8px 0 4px}p.s{color:var(--mu);margin:0 0 12px}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;display:flex;gap:8px;align-items:center;z-index:2}
+button{font:inherit;cursor:pointer;border-radius:8px;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:6px 12px}
+button.p{background:var(--ac);color:#fff;border-color:var(--ac)}
+.q{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:12px 0}
+.q h3{font-size:1rem;margin:0 0 10px}
+.o{padding:8px 10px;border:1px solid var(--bd);border-radius:8px;margin:6px 0}
+.q.show .o.c{background:var(--okb);border-color:var(--ok);color:var(--ok);font-weight:600}
+.a{display:none;color:var(--ok);font-weight:600;margin-top:8px}.q.show .a{display:block}
+</style></head><body><div class="w">
+<h1>AI Agents – 100 MCQs</h1><p class="s">Based on "Agents in Artificial Intelligence". Tap "Show Answer" under any question.</p>
+<div class="bar"><button class="p" id="all">Show all answers</button><span id="n" class="s" style="margin:0">100 questions</span></div>
+<div id="L"></div></div>
+<script>
+// [question, correct, wrong1, wrong2, wrong3]
+const D=[
+["Agents sense the environment through ___ and act on it through ___.","Sensors; actuators","Actuators; sensors","Memory; motors","Programs; databases"],
+["An AI system can be defined as the study of:","The rational agent and its environment","Computer networks","Database queries","Operating systems"],
+["An agent runs in the cycle of:","Perceiving, thinking, acting","Sleeping, waking, acting","Storing, deleting, copying","Compiling, linking, running"],
+["Which are mental properties an AI agent can have?","Knowledge, belief, intention","Color, size, weight","Voltage, current, power","Height, width, depth"],
+["In a human agent, sensors are:","Eyes, ears and other organs","Hands and legs","Vocal tract","Stomach and liver"],
+["In a human agent, actuators are:","Hands, legs, vocal tract","Eyes","Ears","Nose and skin"],
+["A robotic agent's sensors can include:","Cameras, infrared range finder, NLP","Motors","Grippers","Wheels"],
+["A robotic agent uses ___ as actuators.","Various motors","Cameras","Keyboards","Sonar"],
+["A software agent's sensory input can be:","Keystrokes and file contents","Camera images","Radar signals","Eyes and ears"],
+["A software agent shows its output by:","Displaying it on the screen","Moving robotic arms","Driving wheels","Blowing a horn"],
+["Which focus area of future AI designs energy-efficient systems to reduce environmental impact?","Green AI","Generative AI","AIoT","Space AI"],
+["Another name for actuators is:","Effectors","Percepts","Sensors","Models"],
+["Which is a component of an AI system (Perception–Reasoning–Action loop)?","Reasoning","Compilation","Encryption","Indexing"],
+["An intelligent agent is best described as:","An autonomous entity acting on an environment to achieve goals","A passive data store","A purely hardware device","A user interface"],
+["How many main rules for an AI agent are listed?","4","2","3","5"],
+["Rule 1 for an AI agent is:","It must be able to perceive the environment","Its action must be random","It must never use memory","It must be human-like"],
+["Rule 2 for an AI agent is:","The observation must be used to make decisions","It must ignore observations","It must store all data","It must copy humans"],
+["Rule 3 for an AI agent is:","A decision should result in an action","A decision must be delayed","A decision should be hidden","A decision needs no action"],
+["Rule 4 for an AI agent is:","The action taken must be a rational action","The action must be fast only","The action must be random","The action must be costly"],
+["Structure of an intelligent agent is:","Architecture + Agent program","Sensor + Actuator","Percept + Memory","Goal + Utility"],
+["Architecture is:","The machinery the agent executes on","A mapping from percept to action","The agent's goal","The performance measure"],
+["Agent function is used to:","Map a percept to an action","Store the environment","Execute on hardware","Measure rationality"],
+["Agent program is:","An implementation of the agent function","The physical hardware","A sensor","An actuator"],
+["How many main terms are involved in the structure of an AI agent?","3","2","4","5"],
+["The task of AI is to design:","An agent program that implements the agent function","Only hardware","Only sensors","Only databases"],
+["Rationality of an agent is measured by its:","Performance measure","Size","Color","Price"],
+["The performance measure defines the:","Success criterion","Hardware type","Programming language","Sensor count"],
+["Which is NOT a point used to judge rationality?","Color of the agent","Performance measure","Prior knowledge of environment","Sequence of percepts"],
+["Rationality depends on the agent's prior knowledge, best possible actions, performance measure and:","The sequence of percepts","The agent's size","The cost of sensors","The screen resolution"],
+["PEAS stands for:","Performance measure, Environment, Actuators, Sensors","Perception, Energy, Action, Speed","Planning, Execution, Analysis, Storage","Percept, Effect, Agent, State"],
+["In PEAS, 'P' stands for:","Performance measure","Perception","Planning","Processor"],
+["In PEAS, 'E' stands for:","Environment","Energy","Effectors only","Execution"],
+["In PEAS, 'A' stands for:","Actuators","Agent","Algorithm","Architecture"],
+["In PEAS, 'S' stands for:","Sensors","Software","State","Search"],
+["Performance measure of a self-driving car includes:","Safety, time, legal drive, comfort","Color, brand, size","Battery only","Number of seats"],
+["Environment of a self-driving car includes:","Roads, other vehicles, road signs, pedestrians","Steering and brake","Camera and GPS","Horn and signal"],
+["Actuators of a self-driving car include:","Steering, accelerator, brake, signal, horn","Camera, GPS, sonar","Roads and pedestrians","Safety and comfort"],
+["Sensors of a self-driving car include:","Camera, GPS, speedometer, odometer, accelerometer, sonar","Steering, brake, horn","Roads, signs, pedestrians","Safety, time, comfort"],
+["Which is a sensor of a self-driving car?","GPS","Horn","Brake","Steering"],
+["Which is an actuator of a self-driving car?","Horn","Camera","Sonar","Odometer"],
+["Performance measure of a vacuum cleaner agent includes:","Cleanliness, efficiency, battery life, security","Roads and signs","Healthy patient","Display questions"],
+["Environment of a vacuum cleaner agent includes:","Room, table, wood floor, carpet, obstacles","Hospital and staff","Roads and pedestrians","Keyboard entry"],
+["Actuators of a vacuum cleaner agent include:","Wheels, brushes, vacuum extractor","Cliff sensor","Bump sensor","Camera"],
+["Which is a sensor of a vacuum cleaner agent?","Cliff sensor","Brush","Wheel","Vacuum extractor"],
+["Performance measure of a medical diagnosis agent:","Healthy patient, minimized cost","Cleanliness","Battery life","Safety on roads"],
+["Environment of a medical diagnosis agent:","Patient, hospital, staff","Room, carpet, table","Roads, vehicles","Home, lights, fan"],
+["Actuators of a medical diagnosis agent:","Display questions, tests, diagnosis, treatments","Keyboard","Patient answers","Wheels and brushes"],
+["Sensors of a medical diagnosis agent:","Keyboard (entry of symptoms), patient answers","Treatments","Tests","Hospital staff only"],
+["Performance measure of the smart home agent:","Save electricity, maintain comfort, respond correctly","Safety and time","Cleanliness","Minimized cost of treatment"],
+["Sensors of the smart home agent:","Temperature sensor, motion sensor, voice command","Fan, light, AC","Home and rooms","Save electricity"],
+["Actuators of the smart home agent:","Lights, fan, AC ON/OFF","Temperature sensor","Voice command","Motion sensor"],
+["Environment of the smart home agent:","Home, rooms, temperature, lights, user","Roads and vehicles","Patient and hospital","Carpet and obstacles"],
+["Smart home Rule 1: if the room is dark and motion is detected →","Turn ON light","Turn ON fan","Turn OFF fan","Turn OFF all appliances"],
+["Smart home Rule 2: if temperature > 30°C →","Turn ON fan","Turn OFF fan","Turn ON light","Turn OFF AC"],
+["Smart home Rule 3: if temperature < 20°C →","Turn OFF fan","Turn ON fan","Turn ON light","Turn ON AC"],
+["Smart home Rule 4: if user says \"Good Night\" →","Turn OFF all appliances","Turn ON all appliances","Turn ON light","Turn ON fan"],
+["The agent behavior sequence is:","Observe → Think → Decide → Act","Act → Observe → Think → Decide","Decide → Act → Observe → Think","Think → Act → Decide → Observe"],
+["In SmartHomeAgent, the initial value of self.light and self.fan is:","False","True","None","0.5"],
+["Which method in SmartHomeAgent takes temperature, motion, dark, command?","perceive()","status()","__init__()","main()"],
+["Which keyword is used for Rule 3 in the Python code?","elif","else","while","for"],
+["Why is command.lower() used in the code?","To compare the command case-insensitively","To delete the command","To make it a number","To encrypt it"],
+["Which is a real-life example of an intelligent agent shown in the slides?","Alexa","Notepad","A paper map","A calculator app"],
+["How many major types of intelligent agents are described?","5","3","4","6"],
+["A Simple Reflex Agent selects actions based on:","Only the current percept","Past history","A learned model","Utility values"],
+["A Simple Reflex Agent uses:","Condition–action rules","Search algorithms","Utility functions","Critic feedback"],
+["Memory in a Simple Reflex Agent is:","Absent","Present","Unlimited","Learned"],
+["Which is a Simple Reflex Agent example?","Automatic door","Chess AI","Netflix recommendation","Google Maps route planning"],
+["A disadvantage of Simple Reflex Agents is that they:","Fail in partially observable environments","Are slow","Need large datasets","Are expensive"],
+["An advantage of Simple Reflex Agents is:","Very fast with low computational cost","Can learn","Can plan ahead","Maintain a model"],
+["Simple Reflex Agents are best for:","Simple, well-defined, fully observable environments","Uncertain environments","Long-term planning","Learning tasks"],
+["For temperature = 35, the simple reflex code prints:","Turn ON Fan","Turn OFF Fan","Error","Nothing"],
+["A Model-Based Reflex Agent maintains:","An internal model of the environment","Only goals","Only a utility function","No state at all"],
+["Model-Based Reflex Agents can handle:","Partially observable environments","Only fully random worlds","Only learning tasks","No environments"],
+["Which is a Model-Based Reflex Agent example?","Robot vacuum cleaner","Automatic door","Thermostat only","Hand dryer"],
+["A disadvantage of Model-Based Reflex Agents:","More complex and needs additional memory","No memory","Cannot use rules","Cannot perceive"],
+["Model-based working principle:","Current percept + internal state → update model → choose action","Percept → action only","Goal → plan → learn","Utility → evaluate → reward"],
+["In the model-based Python example, what is printed?","Cleaning Room A","Cleaning Room B","Room A is Clean","No Action"],
+["After cleaning in the example, the model becomes:","rooms = {'A': 'Clean', 'B': 'Clean'}","rooms = {'A': 'Dirty', 'B': 'Clean'}","rooms = {}","rooms = {'A': 'Dirty', 'B': 'Dirty'}"],
+["A Goal-Based Agent chooses actions that:","Help achieve a specified goal","Follow fixed rules only","Ignore the future","Maximize memory"],
+["Goal-Based Agents use:","Search and planning","Only condition–action rules","Only feedback from a critic","No algorithms"],
+["Which is a Goal-Based Agent example?","Google Maps route planning","Automatic door","Thermostat","Motion light"],
+["A disadvantage of Goal-Based Agents:","Slower and computationally expensive","No flexibility","Cannot plan","Cannot find solutions"],
+["The goal-based Python example prints:","Move towards destination","No action needed","Reached","Error"],
+["Goal-based working principle:","Current state → Goal → Planning → Best action","Percept → Rule → Action","Action → Utility → Trophy","Experience → Critic → Learning"],
+["A Utility-Based Agent selects the action with:","The highest utility","The lowest cost only","The first rule matched","Random choice"],
+["A utility function:","Assigns a utility score to each action","Stores the environment","Reads sensors","Moves actuators"],
+["Which is a Utility-Based Agent example?","Ride sharing apps","Automatic door","Hand dryer","Motion sensor light"],
+["A disadvantage of Utility-Based Agents:","The utility function is difficult to design","They have no options","They cannot compare","They need no computation"],
+["In the utility example {Bus:40, Bike:70, Car:90}, the output is:","Car","Bus","Bike","90"],
+["An advantage of Utility-Based Agents:","Works under uncertainty","Needs no computation","Has no goals","Cannot optimize"],
+["A Learning Agent:","Improves performance by learning from experience","Uses fixed rules only","Has no knowledge","Ignores feedback"],
+["How many main components does a Learning Agent have?","4","2","3","5"],
+["The Performance Element of a Learning Agent:","Selects actions and interacts with the environment","Evaluates performance","Suggests exploratory actions","Updates the critic"],
+["The Learning Element:","Improves the performance element using feedback","Selects external actions","Generates problems","Senses the environment"],
+["The Critic:","Evaluates performance and gives feedback to the learning element","Suggests exploration","Moves actuators","Stores rooms"],
+["The Problem Generator:","Suggests exploratory actions to obtain new information","Evaluates performance","Selects actions","Reduces cost"],
+["In the learning example, the average of [45, 55, 65, 80] is:","61.25","60","62.5","245"],
+["Which agent has memory but NO goal?","Model-Based Agent","Simple Reflex Agent","Goal-Based Agent","Learning Agent"],
+["Which is the only agent type with Learning = Yes in the comparison?","Learning Agent","Utility-Based Agent","Goal-Based Agent","Model-Based Agent"],
+["Planning for the Model-Based Agent is rated:","Limited","Yes","No","Highest"],
+["Which AI challenge arises when many models act as 'black boxes'?","Lack of transparency","High development cost","Job displacement","Dependence on large data"],
+["Which future AI trend 'creates text, images, videos, music and code'?","Generative AI","Green AI","AI in Space","Explainable AI"]
+];
+// seeded shuffle so option order is stable
+let seed=7;const r=()=>(seed=(seed*16807)%2147483647)/2147483647;
+const L=document.getElementById('L');
+D.forEach((d,i)=>{
+  const opts=d.slice(1).map((t,k)=>({t,c:k===0}));
+  for(let k=3;k>0;k--){const j=Math.floor(r()*(k+1));[opts[k],opts[j]]=[opts[j],opts[k]];}
+  const ci=opts.findIndex(o=>o.c),ab='ABCD';
+  const q=document.createElement('div');q.className='q';
+  const h=document.createElement('h3');h.textContent=(i+1)+'. '+d[0];q.appendChild(h);
+  opts.forEach((o,k)=>{const e=document.createElement('div');e.className='o'+(o.c?' c':'');e.textContent=ab[k]+') '+o.t;q.appendChild(e);});
+  const a=document.createElement('div');a.className='a';a.textContent='Answer: '+ab[ci]+') '+opts[ci].t;q.appendChild(a);
+  const b=document.createElement('button');b.textContent='Show Answer';
+  b.onclick=()=>{q.classList.toggle('show');b.textContent=q.classList.contains('show')?'Hide Answer':'Show Answer';};
+  q.appendChild(b);L.appendChild(q);
+});
+let all=false;
+document.getElementById('all').onclick=function(){
+  all=!all;this.textContent=all?'Hide all answers':'Show all answers';
+  document.querySelectorAll('.q').forEach(q=>{q.classList.toggle('show',all);q.querySelector('button').textContent=all?'Hide Answer':'Show Answer';});
+};
+</script></body></html>
